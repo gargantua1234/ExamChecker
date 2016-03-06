@@ -8,13 +8,13 @@ public class Answers {
 	public Answers(List<String> answers){
 		this.answers = answers;
 	}
-//	
-//	public String getAnswerNumber(int number){
-//		return answers.get(number);
-//	}
-//	
+	
 	public void setAnswer(String value){
 		answers.add(value);
+	}
+	
+	public List<String> getAnswers(){
+		return answers;
 	}
 	
 	

@@ -2,21 +2,29 @@ package com.aro.main;
 
 import java.util.*;
 
+
+
 import com.aro.answer.*;
+import com.aro.compare.SingleChoiceComparator;
+import com.aro.compare.SingleChoiceWithMinus;
 
 public class ExamCheckApp {
 
 	public static void main(String[] args) {
-		List<String> answers = new LinkedList<>();
-		Answers ca = new Answers(answers);
-		AnswerLoader al = new AnswerLoader(
-				"TestsExample\\CorrectAnswerSingleChoice.txt", ca
-				);
-		al.loadAnswers();
+		AnswerGenerator generator = new AnswerGenerator();
 		
-		for(String a : answers)
-			System.out.println(a);
-
+		SingleChoiceComparator singleChoice = new SingleChoiceComparator();
+		SingleChoiceWithMinus withMinusPoints = new SingleChoiceWithMinus();
+		
+		Answers correct = generator.generateAnswers("TestsExample\\CorrectAnswerSingleChoice.txt", new LinkedList<String>());
+		Answers studentAnswer = generator.generateAnswers("TestsExample\\TestAnswerExample.txt", new LinkedList<String>());
+		
+		int points = singleChoice.compareAnswers(correct, studentAnswer);
+		System.out.println("Uzyskales "+ points+" punktow");
+		
+		points = withMinusPoints.compareAnswers(correct, studentAnswer);
+		System.out.println("Uzyskales "+ points+" punktow");
+		
 	}
 
 }
