@@ -2,11 +2,8 @@ package com.aro.main;
 
 import java.util.*;
 
-
-
 import com.aro.answer.*;
-import com.aro.compare.SingleChoiceComparator;
-import com.aro.compare.SingleChoiceWithMinus;
+import com.aro.compare.*;
 
 public class ExamCheckApp {
 
