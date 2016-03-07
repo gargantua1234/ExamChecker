@@ -6,7 +6,7 @@ public interface AnswerComparator {
 	public static final String EMPTY= "";
 	
 	enum Point{
-		MINUS_PT(-1), ZERO(0), POINT(1);
+		MINUS_PT(-1), ZERO(0), POINT(1), DOUBLE_P(2);
 				
 		public final int value;
 		
