@@ -2,31 +2,24 @@ package com.aro.answer;
 
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.nio.file.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.LinkedList;
+import java.util.List;
 
 public class AnswerFileLoader{
-	private Answers answers;
-	private Path filePath;
 	
-	public AnswerFileLoader(String fileName, Answers answers){
-		this.answers = answers;
-		this.filePath = Paths.get(fileName);
-	}
-	
-	public Answers loadAnswers(){
+	public List<String> loadAnswers(Path filePath)throws IOException{
 		String line;
-		try(BufferedReader sourceFile = Files.newBufferedReader(filePath)){
-			while((line= sourceFile.readLine())!= null){
-				addAnswer(line);
-			}
-		}
-		catch(IOException exception){
-			System.err.println("Problem with opening file: "+exception);
+		List<String> answers = new LinkedList<>();
+		BufferedReader sourceFile = Files.newBufferedReader(filePath);
+		while((line= sourceFile.readLine())!= null){
+			addAnswer(line, answers);
 		}
 		return answers;
 	}
-	private void addAnswer(String line){
+	private void addAnswer(String line, List<String> answers){
 		String answer = AnswerExtraction.getAnswerFrom(line);
-		answers.setAnswer(answer);
+		answers.add(answer);
 	}
 }

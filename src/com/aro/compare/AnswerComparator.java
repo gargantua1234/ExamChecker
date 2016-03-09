@@ -1,6 +1,6 @@
 package com.aro.compare;
 
-import com.aro.answer.Answers;
+import java.util.List;
 
 public interface AnswerComparator {
 	public static final String EMPTY= "";
@@ -15,5 +15,5 @@ public interface AnswerComparator {
 		}
 	}
 	
-	public int compareAnswers(Answers correct, Answers given);
+	public int compareAnswers(List<String> correct, List<String> student);
 }

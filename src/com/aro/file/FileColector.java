@@ -1,14 +1,11 @@
 package com.aro.file;
 
 import java.nio.file.Path;
+import java.util.LinkedList;
 import java.util.List;
 
 public class FileColector implements VisitAction {
-	private List<String> examsFiles;
-	
-	 public FileColector(List<String> contener) {
-		this.examsFiles = contener;
-	}
+	private List<String> examsFiles = new LinkedList<>();
 	
 	@Override
 	public void visitFile(Path file) {

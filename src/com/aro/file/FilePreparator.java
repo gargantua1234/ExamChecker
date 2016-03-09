@@ -1,7 +1,6 @@
 package com.aro.file;
 
 import java.io.IOException;
-import java.util.LinkedList;
 import java.util.List;
 
 public class FilePreparator {
@@ -12,7 +11,7 @@ public class FilePreparator {
 	}
 	
 	public List<String> prepareFiles()throws IOException{
-		FileColector files = new FileColector(new LinkedList<String>());
+		FileColector files = new FileColector();
 		FileVisitor visitor = new FileVisitor(files);
 		
 		DirectoryTraverser traverser = new DirectoryTraverser();

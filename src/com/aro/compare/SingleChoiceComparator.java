@@ -1,16 +1,16 @@
 package com.aro.compare;
 
 import java.util.Iterator;
+import java.util.List;
 
-import com.aro.answer.Answers;
 
 public class SingleChoiceComparator implements AnswerComparator {
 
 	@Override
-	public int compareAnswers(Answers answerPattern, Answers givenAnswer) {
+	public int compareAnswers(List<String> answerPattern, List<String> givenAnswer) {
 		int points = 0;
-		Iterator<String> patternIterator = answerPattern.getAnswers().iterator();
-		Iterator<String> givenIterator = givenAnswer.getAnswers().iterator();
+		Iterator<String> patternIterator = answerPattern.iterator();
+		Iterator<String> givenIterator = givenAnswer.iterator();
 		
 		while(patternIterator.hasNext() && givenIterator.hasNext())
 			points += compare(patternIterator.next(), givenIterator.next());

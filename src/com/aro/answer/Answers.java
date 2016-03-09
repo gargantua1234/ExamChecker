@@ -1,12 +1,12 @@
 package com.aro.answer;
 
-import java.util.List;
+import java.util.*;
 
 public class Answers {
 	protected List<String> answers;
 	
-	public Answers(List<String> answers){
-		this.answers = answers;
+	public Answers(){
+		this.answers = new LinkedList<String>();
 	}
 	
 	public void setAnswer(String value){
